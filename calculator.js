@@ -1,41 +1,33 @@
-let result=document.getElementById("demo");
+let input = document.getElementById('demo');
 
-function calculate(v){
-    result.value +=v;
-
+function calculate(v) {
+  input.value += v;
 }
 
-function ResultEqual(){
-    result.value=eval(result.value);
-    console.log(eval(result.value))
+function ResultEqual() {
+  input.value = eval(input.value);
 }
 // input.addEventListener("keypress",function(event){
 // if(event.key === "Enter"){
 //     event.preventDefault();
 // }
 // });
-input.addEventListener('keyup',(e)=>{
-    if(e.keycode === 13){
-        ResultEqual()
-    }else {display()}
-})
+input.addEventListener('keyup', (e) => {
+  if (e.code === 'Enter') {
+    ResultEqual();
+  } else {
+    display();
+  }
+});
 
-
-function clr(){
-    result.value="";
+function clr() {
+  input.value = '';
 }
-function del(){
-    result.value=result.value.slice(0,-1);
-}
-function keydownFunction(){
-    document.getElementById("demo")
-}
-function keyupFunction(){
-    document.getElementById("demo")
+function del() {
+  input.value = input.value.slice(0, -1);
 }
 // input.addEventListener("keyup",display);
-function display(){
-    localStorage.setItem('value',input.value);
-    demo.innerHTML = localStorage.getItem("value")
+function display() {
+  localStorage.setItem('value', demo.value);
+  demo.innerHTML = localStorage.getItem('value');
 }
-
